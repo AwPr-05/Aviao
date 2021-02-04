@@ -474,8 +474,8 @@ void main() {
     }
 
 // perguntar cor
-    // while (companhiaAereaAcrobatico == "s") 
-    if(companhiaAereaAcrobatico == "s"){
+    while (companhiaAereaAcrobatico == "s") {
+      // if(companhiaAereaAcrobatico == "s"){
       while (corAviaoConvertida == null) {
         print(
             "Qual sera a cor do seu aviao, temos disponivel (1) Vermelho, (2) Preto e (3) Branco? ");
@@ -542,10 +542,11 @@ void main() {
           perguntaPousar = null;
         }
       }
-    print(acrobatico);
-    }else{
-
-    break;
+      print(acrobatico);
+      break;
+    // }else{
+    // break;
+    // }
     }
 // companhiaAereaAcrobatico = null;
 // if do acrobatico
