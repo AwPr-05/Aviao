@@ -474,95 +474,82 @@ void main() {
     }
 
 // perguntar cor
-    while (corAviaoConvertida == null) {
-      print(
-          "Qual sera a cor do seu aviao, temos disponivel (1) Vermelho, (2) Preto e (3) Branco? ");
-      corAviao = stdin.readLineSync();
-      corAviaoConvertida = int.tryParse(corAviao);
-      if (corAviaoConvertida == null ||
-          corAviaoConvertida < 1 ||
-          corAviaoConvertida > 3) {
-        print("Cor Invalida....");
-        corAviaoConvertida = null;
-      } else {
-        acrobatico.verificaCor();
+    // while (companhiaAereaAcrobatico == "s") 
+    if(companhiaAereaAcrobatico == "s"){
+      while (corAviaoConvertida == null) {
+        print(
+            "Qual sera a cor do seu aviao, temos disponivel (1) Vermelho, (2) Preto e (3) Branco? ");
+        corAviao = stdin.readLineSync();
+        corAviaoConvertida = int.tryParse(corAviao);
+        if (corAviaoConvertida == null ||
+            corAviaoConvertida < 1 ||
+            corAviaoConvertida > 3) {
+          print("Cor Invalida....");
+          corAviaoConvertida = null;
+        } else {
+          acrobatico.verificaCor();
+        }
       }
-    }
-    print("Aqui esta o seu aviao -- linha 499");
-    print(acrobatico);
+      print("Aqui esta o seu aviao");
+      print(acrobatico);
 
 // decolar
-    while (perguntaDecolar == null) {
-      print("voce esta pronto para esta aventura? podemos decolar? (s/n)");
-      perguntaDecolar = stdin.readLineSync().toLowerCase();
-      console.clearScreen();
-      if (perguntaDecolar == "s") {
-        acrobatico.decolar();
-        print("Lets go!!!!");
-      } else if (perguntaDecolar == "n") {
-        print("Ok seu aviao esta te esperando para decolar na garagem....");
-        perguntaDecolar = null;
-      } else {
-        perguntaDecolar = null;
+      while (perguntaDecolar == null) {
+        print("voce esta pronto para esta aventura? podemos decolar? (s/n)");
+        perguntaDecolar = stdin.readLineSync().toLowerCase();
+        console.clearScreen();
+        if (perguntaDecolar == "s") {
+          acrobatico.decolar();
+          print("Lets go!!!!");
+        } else if (perguntaDecolar == "n") {
+          print("Ok seu aviao esta te esperando para decolar na garagem....");
+          perguntaDecolar = null;
+        } else {
+          perguntaDecolar = null;
+        }
       }
-    }
-    // se for sim, usar metodo decolar e falar estimativa de tempo do voo
-    // se for nao terminar o jogo e avisar q o aviao estara pronto para qnd ele quizer decolar
-    // feito
+      // se for sim, usar metodo decolar e falar estimativa de tempo do voo
+      // se for nao terminar o jogo e avisar q o aviao estara pronto para qnd ele quizer decolar
+      // feito
 
 // nivel de acrobacia
-    while (nivelAcrobaciaConvertido == null) {
-      print("Qual sera o nivel da acrobacia? 1 a 5");
-      nivelAcrobacia = stdin.readLineSync();
-      nivelAcrobaciaConvertido = int.tryParse(nivelAcrobacia);
-      if (nivelAcrobaciaConvertido == null ||
-          nivelAcrobaciaConvertido < 1 ||
-          nivelAcrobaciaConvertido > 5) {
-        print("Nivel Invalido!");
-        nivelAcrobaciaConvertido = null;
-      } else {
-        acrobatico.nivelAcrobacia(nivelAcrobaciaConvertido);
+      while (nivelAcrobaciaConvertido == null) {
+        print("Qual sera o nivel da acrobacia? 1 a 5");
+        nivelAcrobacia = stdin.readLineSync();
+        nivelAcrobaciaConvertido = int.tryParse(nivelAcrobacia);
+        if (nivelAcrobaciaConvertido == null ||
+            nivelAcrobaciaConvertido < 1 ||
+            nivelAcrobaciaConvertido > 5) {
+          print("Nivel Invalido!");
+          nivelAcrobaciaConvertido = null;
+        } else {
+          acrobatico.nivelAcrobacia(nivelAcrobaciaConvertido);
+        }
       }
-    }
 
 // pousar
-    while (perguntaPousar == null) {
-      print("Iremos pousar? (s/n)");
-      perguntaPousar = stdin.readLineSync().toLowerCase();
-      console.clearScreen();
-      if (perguntaPousar == "s") {
-        acrobatico.pousar();
-      } else if (perguntaPousar == "n") {
-        print("Ok seu aviao mantem voo...");
-        perguntaPousar = null;
-      } else {
-        print("Valor invalido!!!");
-        perguntaPousar = null;
+      while (perguntaPousar == null) {
+        print("Iremos pousar? (s/n)");
+        perguntaPousar = stdin.readLineSync().toLowerCase();
+        console.clearScreen();
+        if (perguntaPousar == "s") {
+          acrobatico.pousar();
+        } else if (perguntaPousar == "n") {
+          print("Ok seu aviao mantem voo...");
+          perguntaPousar = null;
+        } else {
+          print("Valor invalido!!!");
+          perguntaPousar = null;
+        }
       }
-    }
     print(acrobatico);
+    }else{
 
+    break;
+    }
+// companhiaAereaAcrobatico = null;
 // if do acrobatico
   }
 
 // TODO fazer o mesmo do boeing nos outros
 }
-
-// vamos fazer com que se acrobatico for nao repita essa funcao
-
-// int escolhaAviao(int aviaoEscolhidoConvertido) {
-//   while (aviaoEscolhidoConvertido == null) {
-//     print(
-//         "Temos estes modelos de avioes em nossa garagem, (1) Boeing, (2) Acrobatico, (3) AirBus, (4) Embraer,Qual vai ser o aviao voce quer pilotar? ");
-//     aviaoEscolhido = stdin.readLineSync();
-//     aviaoEscolhidoConvertido = int.tryParse(aviaoEscolhido);
-//     console.clearScreen();
-//     if (aviaoEscolhidoConvertido == null ||
-//         aviaoEscolhidoConvertido > 4 ||
-//         aviaoEscolhidoConvertido < 1) {
-//       print("Nao temos esse aviao, porfavor colocar um valor valido!!");
-//       aviaoEscolhidoConvertido = null;
-//     }
-//     return aviaoEscolhidoConvertido;
-//   }
-// }
