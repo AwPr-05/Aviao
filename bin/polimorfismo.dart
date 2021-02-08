@@ -33,7 +33,6 @@ int corAviaoConvertida;
 AviaoAcrobatico acrobatico =
     AviaoAcrobatico(tipoViagem: interNacionalBoeing, lugarViagem: lugar);
 
-
 // AirBus
 String companhiaAereaAirBus;
 int companhiaAereaAirBusConvertida;
@@ -46,6 +45,17 @@ AviaoAirbus airBus = AviaoAirbus(
     tipoViagem: interNacionalAirBus,
     lugarViagem: lugar);
 
+// Embraer
+String companhiaAereaEmbraer;
+int companhiaAereaEmbraerConvertida;
+String interNacionalEmbraer;
+String destinoInternacionalEmbraer;
+int destinoInternacionalEmbraerConvertido;
+
+AviaoEmbraer embraer = AviaoEmbraer(
+    companhiaAerea: companhiaAereaEscrito,
+    tipoViagem: interNacionalAirBus,
+    lugarViagem: lugar);
 
 // classe generica
 class Aviao {
@@ -84,7 +94,8 @@ class Aviao {
       lugar = "Sao Francisco";
     }
 
-    if (interNacionalBoeing == "nacional" && destinoInternacionalBoeingConvertido == 1) {
+    if (interNacionalBoeing == "nacional" &&
+        destinoInternacionalBoeingConvertido == 1) {
       lugar = "Sao Paulo";
     } else if (interNacionalBoeing == "nacional" &&
         destinoInternacionalBoeingConvertido == 2) {
@@ -240,7 +251,7 @@ class AviaoAirbus extends Aviao {
 
 // polifromismo
 
-@override
+  @override
   void validaCompanhia() {
     if (companhiaAereaAirBusConvertida == 1) {
       companhiaAereaEscrito = "Delta";
@@ -251,9 +262,9 @@ class AviaoAirbus extends Aviao {
     }
   }
 
-@override
+  @override
   void validaLugar() {
-  if (interNacionalAirBus == "internacional" &&
+    if (interNacionalAirBus == "internacional" &&
         destinoInternacionalAirBusConvertido == 1) {
       lugar = "Tokyo";
     } else if (interNacionalAirBus == "internacional" &&
@@ -264,7 +275,8 @@ class AviaoAirbus extends Aviao {
       lugar = "Hong Kong";
     }
 
-    if (interNacionalAirBus == "nacional" && destinoInternacionalAirBusConvertido == 1) {
+    if (interNacionalAirBus == "nacional" &&
+        destinoInternacionalAirBusConvertido == 1) {
       lugar = "Florianopolis";
     } else if (interNacionalAirBus == "nacional" &&
         destinoInternacionalAirBusConvertido == 2) {
@@ -277,12 +289,13 @@ class AviaoAirbus extends Aviao {
 
   @override
   void acoplarRodas() {
- print(" O Aviao da $companhiaAereaEscrito esta acoplando as rodas!!");
+    print(" O Aviao da $companhiaAereaEscrito esta acoplando as rodas!!");
   }
 
   @override
   void decolar() {
-    print("Desejo a todos os passageiros da $companhiaAereaEscrito uma otima viagem!");
+    print(
+        "Desejo a todos os passageiros da $companhiaAereaEscrito uma otima viagem!");
   }
 
   @override
@@ -315,33 +328,72 @@ class AviaoEmbraer extends Aviao {
             lugarViagem: lugarViagem);
 
 // polifromismo
+
+  @override
+  void validaCompanhia() {
+    if (companhiaAereaEmbraerConvertida == 1) {
+      companhiaAereaEscrito = "Republic Airways";
+    } else if (companhiaAereaEmbraerConvertida == 2) {
+      companhiaAereaEscrito = "Envoy Air";
+    } else if (companhiaAereaEmbraerConvertida == 3) {
+      companhiaAereaEscrito = "SkyWest Airlines";
+    }
+  }
+
+  @override
+  void validaLugar() {
+    if (interNacionalEmbraer == "internacional" &&
+        destinoInternacionalEmbraerConvertido == 1) {
+      lugar = "Roma";
+    } else if (interNacionalEmbraer == "internacional" &&
+        destinoInternacionalEmbraerConvertido == 2) {
+      lugar = "Berlim";
+    } else if (interNacionalEmbraer == "internacional" &&
+        destinoInternacionalEmbraerConvertido == 3) {
+      lugar = "Orlando";
+    }
+
+    if (interNacionalEmbraer == "nacional" &&
+        destinoInternacionalEmbraerConvertido == 1) {
+      lugar = "Brasilia";
+    } else if (interNacionalEmbraer == "nacional" &&
+        destinoInternacionalEmbraerConvertido == 2) {
+      lugar = "Foz do iguacu";
+    } else if (interNacionalEmbraer == "nacional" &&
+        destinoInternacionalEmbraerConvertido == 3) {
+      lugar = "Belo Horizonte";
+    }
+  }
+
   @override
   void acoplarRodas() {
-    print("Aviao Acoplando as rodas!!");
+    print(" O Aviao da $companhiaAereaEscrito esta acoplando as rodas!!");
   }
 
   @override
   void decolar() {
-    super.decolar();
-    print("Desejo a todos uma boa viagem!");
+    print(
+        "Desejo a todos os passageiros da $companhiaAereaEscrito uma otima viagem!");
   }
 
   @override
   void pousar() {
     super.pousar();
+    print("Tripulacao agradecao a deus que pousamos, quase ficamos sem gasolina");
     print(
-        "Obrigado pela preferencia em voar com a $companhiaAereaEscrito e ate a proxima!!");
+        " Mas obrigado pela preferencia em voar com a $companhiaAereaEscrito e ate a proxima!!");
   }
 
   @override
   void darComida() {
     print(
         "O aviao Embraer ira passar dando coxinha e feijoada a todos, peco que aguardem sentados e com o sinto afivelado!!");
+        print("Bom esse era o plano mas como aqui e brasil, tamo tendo falta de coxinha e de feijoada mas agua a gente tem ent quem quizer estaremos passando!!");
   }
 
   @override
   String toString() =>
-      " ✈︎: $companhiaAereaEscrito - $interNacionalBoeing para $lugar";
+      " ✈︎: $companhiaAereaEscrito - $interNacionalEmbraer para $lugar";
 }
 
 // --------------------------------------------------------------------------------------------------------------------------------
@@ -354,7 +406,7 @@ void main() {
 
   while (aviaoEscolhidoConvertido == null) {
     print(
-        "Temos estes modelos de avioes em nossa garagem, (1) Boeing, (2) Acrobatico, (3) AirBus, (4) Embraer,Qual vai ser o aviao voce quer pilotar? ");
+        "Temos estes modelos de avioes em nossa garagem, (1) Boeing, (2) Acrobatico, (3) AirBus, (4) Embraer ,Qual vai ser o aviao voce quer pilotar? ");
     aviaoEscolhido = stdin.readLineSync();
     aviaoEscolhidoConvertido = int.tryParse(aviaoEscolhido);
     console.clearScreen();
@@ -394,7 +446,8 @@ void main() {
         print("iremos fazer uma viagem internacional ou nacional? ");
         interNacionalBoeing = stdin.readLineSync().toLowerCase();
         console.clearScreen();
-        if (interNacionalBoeing == "internacional" || interNacionalBoeing == "nacional") {
+        if (interNacionalBoeing == "internacional" ||
+            interNacionalBoeing == "nacional") {
           print("boa viagem");
         } else {
           print("Porfavor colocar um valor valido");
@@ -407,7 +460,8 @@ void main() {
           print(
               "Para qual destino voce ira (1) New York, (2) Londres, (3) Sao Francisco");
           destinoInternacionalBoeing = stdin.readLineSync();
-          destinoInternacionalBoeingConvertido = int.tryParse(destinoInternacionalBoeing);
+          destinoInternacionalBoeingConvertido =
+              int.tryParse(destinoInternacionalBoeing);
           console.clearScreen();
           if (destinoInternacionalBoeingConvertido == null ||
               destinoInternacionalBoeingConvertido > 3 ||
@@ -420,7 +474,8 @@ void main() {
           print(
               "Para qual destino voce ira (1) Sao Paulo, (2) Rio de Janeiro, (3) Fortaleza");
           destinoInternacionalBoeing = stdin.readLineSync();
-          destinoInternacionalBoeingConvertido = int.tryParse(destinoInternacionalBoeing);
+          destinoInternacionalBoeingConvertido =
+              int.tryParse(destinoInternacionalBoeing);
           console.clearScreen();
           if (destinoInternacionalBoeingConvertido == null ||
               destinoInternacionalBoeingConvertido > 3 ||
@@ -630,7 +685,8 @@ void main() {
       print("iremos fazer uma viagem internacional ou nacional? ");
       interNacionalAirBus = stdin.readLineSync().toLowerCase();
       console.clearScreen();
-      if (interNacionalAirBus == "internacional" || interNacionalAirBus == "nacional") {
+      if (interNacionalAirBus == "internacional" ||
+          interNacionalAirBus == "nacional") {
         print("boa viagem");
       } else {
         print("Porfavor colocar um valor valido");
@@ -640,10 +696,10 @@ void main() {
     // mostra a cidade devidamente
     while (destinoInternacionalAirBusConvertido == null) {
       if (interNacionalAirBus == "internacional") {
-        print(
-            "Para qual destino voce ira (1) Tokyo, (2) Paris, (3) Hong Kong");
+        print("Para qual destino voce ira (1) Tokyo, (2) Paris, (3) Hong Kong");
         destinoInternacionalAirBus = stdin.readLineSync();
-        destinoInternacionalAirBusConvertido = int.tryParse(destinoInternacionalAirBus);
+        destinoInternacionalAirBusConvertido =
+            int.tryParse(destinoInternacionalAirBus);
         console.clearScreen();
         if (destinoInternacionalAirBusConvertido == null ||
             destinoInternacionalAirBusConvertido > 3 ||
@@ -656,7 +712,8 @@ void main() {
         print(
             "Para qual destino voce ira (1) Florianopolis, (2) Acre, (3) Natal");
         destinoInternacionalAirBus = stdin.readLineSync();
-        destinoInternacionalAirBusConvertido = int.tryParse(destinoInternacionalAirBus);
+        destinoInternacionalAirBusConvertido =
+            int.tryParse(destinoInternacionalAirBus);
         console.clearScreen();
         if (destinoInternacionalAirBusConvertido == null ||
             destinoInternacionalAirBusConvertido > 3 ||
@@ -670,7 +727,7 @@ void main() {
       // TODO colocar um print, parabens iremos para cidade escolhida, fazer uma condicao
     }
 // decolar
-    print("Aqui esta o seu aviao");
+    print("Aqui esta o seu aviao:");
     print(airBus.toString());
 
 // apartir daqui fazer que nem o tmagoshi
@@ -728,5 +785,135 @@ void main() {
     print(airBus);
 
 // if do AirBus
+  }
+
+  // ------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------
+
+// se for Embraer
+  if (aviaoEscolhidoConvertido == 4) {
+    print("Otima escolha, - - ✈︎ _ _ _ _ ,seu aviao esta chegando!!");
+    // companhia aerea
+    while (companhiaAereaEmbraerConvertida == null) {
+      print(
+          "Qual sera a companhia aerea (1) Republic Airways, (2) Envoy Air ,(3) SkyWest Airlines? ");
+      companhiaAereaEmbraer = stdin.readLineSync();
+      companhiaAereaEmbraerConvertida = int.tryParse(companhiaAereaEmbraer);
+      console.clearScreen();
+      if (companhiaAereaEmbraerConvertida == null ||
+          companhiaAereaEmbraerConvertida > 3 ||
+          companhiaAereaEmbraerConvertida < 1) {
+        print(
+            "Infelizmente nao trabalhamos com esta companhia aerea, escolha uma valida...");
+        companhiaAereaEmbraerConvertida = null;
+      }
+      embraer.validaCompanhia();
+    }
+
+// se o voo for internacional ou nacional o destino
+    while (interNacionalEmbraer == null) {
+      print("iremos fazer uma viagem internacional ou nacional? ");
+      interNacionalEmbraer = stdin.readLineSync().toLowerCase();
+      console.clearScreen();
+      if (interNacionalEmbraer == "internacional" ||
+          interNacionalEmbraer == "nacional") {
+        print("boa viagem");
+      } else {
+        print("Porfavor colocar um valor valido");
+        interNacionalEmbraer = null;
+      }
+    }
+    // mostra a cidade devidamente
+    while (destinoInternacionalEmbraerConvertido == null) {
+      if (interNacionalEmbraer == "internacional") {
+        print("Para qual destino voce ira (1) Roma, (2) Berlim, (3) Orlando");
+        destinoInternacionalEmbraer = stdin.readLineSync();
+        destinoInternacionalEmbraerConvertido =
+            int.tryParse(destinoInternacionalEmbraer);
+        console.clearScreen();
+        if (destinoInternacionalEmbraerConvertido == null ||
+            destinoInternacionalEmbraerConvertido > 3 ||
+            destinoInternacionalEmbraerConvertido < 1) {
+          print(
+              "Nao podemos ir para este local, porfavor escolher um valido...");
+          destinoInternacionalEmbraerConvertido = null;
+        }
+      } else if (interNacionalEmbraer == "nacional") {
+        print(
+            "Para qual destino voce ira (1) Brasilia, (2) Foz do iguacu, (3) Belo Horizonte");
+        destinoInternacionalEmbraer = stdin.readLineSync();
+        destinoInternacionalEmbraerConvertido =
+            int.tryParse(destinoInternacionalEmbraer);
+        console.clearScreen();
+        if (destinoInternacionalEmbraerConvertido == null ||
+            destinoInternacionalEmbraerConvertido > 3 ||
+            destinoInternacionalEmbraerConvertido < 1) {
+          print(
+              "Nao podemos ir para este local, porfavor escolher um valido...");
+          destinoInternacionalEmbraerConvertido = null;
+        }
+      }
+      embraer.validaLugar();
+      // TODO colocar um print, parabens iremos para cidade escolhida, fazer uma condicao
+    }
+// decolar
+    print("Aqui esta o seu aviao:");
+    print(embraer.toString());
+
+// apartir daqui fazer que nem o tmagoshi
+
+    while (perguntaDecolar == null) {
+      print("todos a bordo ? podemos decolar? (s/n)");
+      perguntaDecolar = stdin.readLineSync().toLowerCase();
+      console.clearScreen();
+      if (perguntaDecolar == "s") {
+        embraer.decolar();
+        embraer.acoplarRodas();
+        // verificar qual destino e dependendo mudar as horas
+        print("estimativa desse voo e de 12 horas");
+      } else if (perguntaDecolar == "n") {
+        print("Ok seu aviao esta te esperando para decolar na garagem....");
+        perguntaDecolar = null;
+      } else {
+        perguntaDecolar = null;
+      }
+    }
+    // se for sim, usar metodo decolar e falar estimativa de tempo do voo
+    // se for nao terminar o jogo e avisar q o aviao estara pronto para qnd ele quizer decolar
+    // feito
+
+// dar comida
+    while (perguntaComida == null) {
+      print("gostaria de dar comida para os passageiros? (s/n)");
+      perguntaComida = stdin.readLineSync().toLowerCase();
+      console.clearScreen();
+      if (perguntaComida == "s") {
+        embraer.darComida();
+        print("espero que gostem !!");
+      } else if (perguntaComida == "n") {
+        print("ok os passageiros que se fodam nao tinhamos comida mesmo...");
+        break;
+      } else {
+        perguntaComida = null;
+      }
+    }
+// pousar
+    while (perguntaPousar == null) {
+      print("Iremos pousar? (s/n)");
+      perguntaPousar = stdin.readLineSync().toLowerCase();
+      console.clearScreen();
+      if (perguntaPousar == "s") {
+        embraer.pousar();
+      } else if (perguntaPousar == "n") {
+        print("Ok seu aviao mantem voo mas nao demore muito ja que o klebao nao encheu o tanque porque a tia dele falou que encher o tanque era uma obra maligna do governo...");
+        perguntaPousar = null;
+      } else {
+        print("Valor invalido!!!");
+        perguntaPousar = null;
+      }
+    }
+    print(embraer);
+
+// if do Embraer
   }
 }
